@@ -29,13 +29,17 @@ public class SecurityConfig {
         return  config.getAuthenticationManager();
     }
 
+    @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .csrf(csrf -> csrf.disable())
 
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(
-                                "/api/auth/**",
+                                "/api/auth/register",
+                                "/api/auth/login",
+                                "/api/auth/check-username",
+                                "/api/auth/check-email",
                                 "/actuator/**",
                                 "/swagger-ui/**",
                                 "/swagger-ui.html",
