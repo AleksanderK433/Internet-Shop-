@@ -29,15 +29,23 @@ public class SecurityConfig {
         return  config.getAuthenticationManager();
     }
 
-    @Bean
-    SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .csrf(csrf -> csrf.disable())
 
                 .authorizeHttpRequests(auth -> auth
-                    .requestMatchers("/api/auth/**", "/actuator/health").permitAll()
-                    .requestMatchers("/api/admin/**").hasRole("ADMIN")
-                    .anyRequest().authenticated()
+                        .requestMatchers(
+                                "/api/auth/**",
+                                "/actuator/**",
+                                "/swagger-ui/**",
+                                "/swagger-ui.html",
+                                "/v3/api-docs/**",
+                                "/swagger-resources/**",
+                                "/webjars/**"
+                        ).permitAll()
+
+                        .requestMatchers("/api/admin/**").hasRole("ADMIN")
+                        .anyRequest().authenticated()
                 )
 
                 .httpBasic(basic -> basic.disable())
