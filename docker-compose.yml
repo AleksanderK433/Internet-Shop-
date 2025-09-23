@@ -10,18 +10,46 @@ services:
       - "5432:5432"
     volumes:
       - pgdata:/var/lib/postgresql/data
+    networks:
+      - app-network
+
+  mailpit:
+    image: axllent/mailpit:latest
+    container_name: mailpit_container
+    ports:
+      - "8025:8025"  # Web UI
+      - "1025:1025"  # SMTP
+    environment:
+      MP_SMTP_AUTH_DISABLE: true
+      MP_WEBROOT: ""
+    networks:
+      - app-network
 
   app:
     build: .
     container_name: spring_app
     depends_on:
       - postgres
+      - mailpit
     environment:
       SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/mydb
       SPRING_DATASOURCE_USERNAME: user
       SPRING_DATASOURCE_PASSWORD: password
+      JWT_SECRET_KEY: supersekretnykluczjwtdlainternetshopaplikacji2025bezpieczny
+      SUPPORT_EMAIL: noreply@internetshop.local
+      # Konfiguracja email dla Mailpit
+      SPRING_MAIL_HOST: mailpit
+      SPRING_MAIL_PORT: 1025
+      SPRING_MAIL_USERNAME: ""
+      SPRING_MAIL_PASSWORD: ""
     ports:
       - "9090:9090"
+    networks:
+      - app-network
 
 volumes:
   pgdata:
+
+networks:
+  app-network:
+    driver: bridge
