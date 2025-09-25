@@ -1,8 +1,8 @@
-package com.shop.internetshop.repository;
+package com.shop.internetshop.user.repository;
 
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
-import com.shop.internetshop.model.User;
+import com.shop.internetshop.user.model.User;
 
 import java.util.Optional;
 

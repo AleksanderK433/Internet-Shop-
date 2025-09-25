@@ -1,4 +1,4 @@
-package com.shop.internetshop.service;
+package com.shop.internetshop.security;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;

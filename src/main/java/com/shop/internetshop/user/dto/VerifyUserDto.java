@@ -1,4 +1,4 @@
-package com.shop.internetshop.dto;
+package com.shop.internetshop.user.dto;
 
 import jakarta.validation.constraints.*;
 import lombok.Getter;

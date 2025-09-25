@@ -1,7 +1,7 @@
-package com.shop.internetshop.controller;
+package com.shop.internetshop.user.controller;
 
-import com.shop.internetshop.model.User;
-import com.shop.internetshop.service.UserService;
+import com.shop.internetshop.user.model.User;
+import com.shop.internetshop.user.service.UserService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;

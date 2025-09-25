@@ -1,4 +1,4 @@
-package com.shop.internetshop.model;
+package com.shop.internetshop.user.model;
 
 import jakarta.validation.constraints.*;
 import jakarta.persistence.*;

@@ -1,13 +1,13 @@
-package com.shop.internetshop.controller;
+package com.shop.internetshop.user.controller;
 
-import com.shop.internetshop.model.User;
-import com.shop.internetshop.dto.LoginUserDto;
-import com.shop.internetshop.dto.RegisterUserDto;
-import com.shop.internetshop.dto.VerifyUserDto;
-import com.shop.internetshop.response.LoginResponse;
-import com.shop.internetshop.service.AuthenticationService;
-import com.shop.internetshop.service.EmailService;
-import com.shop.internetshop.service.JwtService;
+import com.shop.internetshop.user.model.User;
+import com.shop.internetshop.user.dto.LoginUserDto;
+import com.shop.internetshop.user.dto.RegisterUserDto;
+import com.shop.internetshop.user.dto.VerifyUserDto;
+import com.shop.internetshop.user.response.LoginResponse;
+import com.shop.internetshop.user.service.AuthenticationService;
+import com.shop.internetshop.email.service.EmailService;
+import com.shop.internetshop.security.JwtService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;

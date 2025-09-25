@@ -1,7 +1,8 @@
-package com.shop.internetshop.service;
+package com.shop.internetshop.user.service;
 
-import com.shop.internetshop.model.User;
-import com.shop.internetshop.repository.UserRepository;
+import com.shop.internetshop.email.service.EmailService;
+import com.shop.internetshop.user.model.User;
+import com.shop.internetshop.user.repository.UserRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;

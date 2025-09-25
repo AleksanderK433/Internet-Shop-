@@ -1,10 +1,11 @@
-package com.shop.internetshop.service;
+package com.shop.internetshop.user.service;
 
-import com.shop.internetshop.model.User;
-import com.shop.internetshop.dto.LoginUserDto;
-import com.shop.internetshop.dto.RegisterUserDto;
-import com.shop.internetshop.dto.VerifyUserDto;
-import com.shop.internetshop.repository.UserRepository;
+import com.shop.internetshop.email.service.EmailService;
+import com.shop.internetshop.user.model.User;
+import com.shop.internetshop.user.dto.LoginUserDto;
+import com.shop.internetshop.user.dto.RegisterUserDto;
+import com.shop.internetshop.user.dto.VerifyUserDto;
+import com.shop.internetshop.user.repository.UserRepository;
 import jakarta.mail.MessagingException;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;

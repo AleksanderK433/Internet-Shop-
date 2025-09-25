@@ -1,4 +1,4 @@
-package com.shop.internetshop.response;
+package com.shop.internetshop.user.response;
 
 import lombok.Getter;
 import lombok.Setter;

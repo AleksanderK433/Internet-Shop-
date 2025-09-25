@@ -1,6 +1,5 @@
-package com.shop.internetshop.config;
+package com.shop.internetshop.security;
 
-import com.shop.internetshop.service.JwtService;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;

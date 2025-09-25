@@ -1,6 +1,6 @@
 package com.shop.internetshop.config;
 
-import com.shop.internetshop.repository.UserRepository;
+import com.shop.internetshop.user.repository.UserRepository;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;

@@ -1,5 +1,6 @@
 package com.shop.internetshop.config;
 
+import com.shop.internetshop.security.JwtAuthenticationFilter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationProvider;
