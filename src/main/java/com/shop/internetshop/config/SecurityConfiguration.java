@@ -38,7 +38,7 @@ public class SecurityConfiguration {
                 .cors(cors -> cors.configurationSource(corsConfigurationSource()))
                 .authorizeHttpRequests(authorize -> authorize
                         // Publiczne endpointy
-                        .requestMatchers("/auth/**").permitAll()  // POPRAWIONA ŚCIEŻKA
+                        .requestMatchers("/auth/**").permitAll()
                         .requestMatchers("/actuator/**").permitAll()
                         .requestMatchers("/swagger-ui/**").permitAll()
                         .requestMatchers("/swagger-ui.html").permitAll()
