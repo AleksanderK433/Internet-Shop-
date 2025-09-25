@@ -117,4 +117,14 @@ public class User implements UserDetails {
     public boolean isUser() {
         return Role.USER.equals(this.role);
     }
+
+    @Override
+    public String getUsername() {
+        return email;  // UserDetails.getUsername() MUSI zwracać email (unikalny identyfikator)
+    }
+
+    // Jeśli chcesz mieć dostęp do właściwego username do wyświetlania, dodaj:
+    public String getDisplayName() {
+        return username;  // Zwraca właściwy username dla UI
+    }
 }
