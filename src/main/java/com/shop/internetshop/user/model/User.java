@@ -1,10 +1,12 @@
 package com.shop.internetshop.user.model;
 
+import com.shop.internetshop.user.model.enums.Role;
 import jakarta.validation.constraints.*;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.time.LocalDateTime;
@@ -37,6 +39,10 @@ public class User implements UserDetails {
     @Size(min = 8, message = "Hasło musi mieć minimum 8 znaków")
     private String password;
 
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private Role role = Role.USER;
+
     @Column(name = "verification_code")
     @Size(min = 6, max = 6, message = "Kod weryfikacyjny musi mieć 6 cyfr")
     @Pattern(regexp = "^[0-9]{6}$", message = "Kod weryfikacyjny musi składać się z 6 cyfr")
@@ -48,39 +54,67 @@ public class User implements UserDetails {
 
     private boolean enabled;
 
-    //constructor for creating an unverified user
+    private boolean banned = false;
+
+
+    // Konstruktor dla tworzenia niezweryfikowanego użytkownika
     public User(String username, String email, String password) {
         this.username = username;
         this.email = email;
         this.password = password;
+        this.role = Role.USER;
+        this.enabled = false;
+        this.banned = false;
     }
-    //default constructor
+
+    // Konstruktor z rolą (dla adminów)
+    public User(String username, String email, String password, Role role) {
+        this.username = username;
+        this.email = email;
+        this.password = password;
+        this.role = role;
+        this.enabled = true;    // Admini od razu aktywni
+        this.banned = false;
+    }
+
     public User(){
     }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of();
+
+        return List.of(new SimpleGrantedAuthority("ROLE_"+role.name()));
     }
 
-    //TODO: add proper boolean checks
     @Override
     public boolean isAccountNonExpired() {
+
         return true;
     }
 
     @Override
     public boolean isAccountNonLocked() {
-        return true;
+
+        return !banned;
     }
 
     @Override
     public boolean isCredentialsNonExpired() {
+
         return true;
     }
 
     @Override
     public boolean isEnabled() {
+
         return enabled;
+    }
+
+    public boolean isAdmin() {
+        return Role.ADMIN.equals(this.role);
+    }
+
+    public boolean isUser() {
+        return Role.USER.equals(this.role);
     }
 }
