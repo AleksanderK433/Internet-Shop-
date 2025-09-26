@@ -2,6 +2,7 @@ package com.shop.internetshop.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -37,7 +38,7 @@ public class SecurityConfiguration {
                 .csrf(csrf -> csrf.disable())
                 .cors(cors -> cors.configurationSource(corsConfigurationSource()))
                 .authorizeHttpRequests(authorize -> authorize
-                        // Publiczne endpointy
+                        // Publiczne endpointy - dostęp bez logowania
                         .requestMatchers("/auth/**").permitAll()
                         .requestMatchers("/actuator/**").permitAll()
                         .requestMatchers("/swagger-ui/**").permitAll()
@@ -46,13 +47,23 @@ public class SecurityConfiguration {
                         .requestMatchers("/error").permitAll()
                         .requestMatchers("/favicon.ico").permitAll()
 
-                        // Admin endpointy - tylko dla ADMIN
-                        .requestMatchers("/users/admin/**").hasRole("ADMIN")
+                        // PRODUKTY I KATEGORIE - publiczne endpointy (katalog sklepu)
+                        .requestMatchers(HttpMethod.GET, "/products/**").permitAll()  // GET produktów
+                        .requestMatchers( "/categories/**").permitAll()  // GET kategorii
 
-                        // User endpointy - dla zalogowanych
+                        // ADMIN endpointy - tylko dla ADMIN
+                        .requestMatchers("/admin/**").hasRole("ADMIN")  // Wszystkie admin endpointy
+                        .requestMatchers("/users/admin/**").hasRole("ADMIN")  // User admin endpointy
+
+                        // USER endpointy - dla zalogowanych użytkowników
                         .requestMatchers("/users/**").authenticated()
 
-                        // Inne endpointy wymagają uwierzytelnienia
+                        // CART/ORDER endpointy (przyszłość) - dla zalogowanych
+                        .requestMatchers("/cart/**").authenticated()
+                        .requestMatchers("/orders/**").authenticated()
+                        .requestMatchers("/checkout/**").authenticated()
+
+                        // Wszystkie inne endpointy wymagają uwierzytelnienia
                         .anyRequest().authenticated()
                 )
                 .sessionManagement(session -> session
