@@ -1,6 +1,6 @@
-package category.repository;
+package com.shop.internetshop.category.repository;
 
-import category.model.Category;
+import com.shop.internetshop.category.model.Category;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -29,7 +29,7 @@ public interface CategoryRepository extends JpaRepository<Category, Long> {
 
     // Sprawdź czy kategoria ma produkty
     @Query("SELECT COUNT(p) > 0 FROM Product p WHERE p.category = :category AND p.active = true")
-    boolean hasActiveProducts(@Param("category") Category category);
+    boolean hasActiveProducts(@Param("com/shop/internetshop/category") Category category);
 
     // Znajdź kategorie z produktami
     @Query("SELECT DISTINCT c FROM Category c JOIN c.products p WHERE c.active = true AND p.active = true ORDER BY c.sortOrder ASC")

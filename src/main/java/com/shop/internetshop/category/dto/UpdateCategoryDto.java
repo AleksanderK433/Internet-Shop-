@@ -1,4 +1,4 @@
-package category.dto;
+package com.shop.internetshop.category.dto;
 
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.Pattern;

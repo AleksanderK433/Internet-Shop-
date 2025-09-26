@@ -1,4 +1,4 @@
-package category.model;
+package com.shop.internetshop.category.model;
 
 import com.shop.internetshop.product.model.Product;
 import jakarta.persistence.*;

@@ -1,9 +1,9 @@
-package category.controller;
+package com.shop.internetshop.category.controller;
 
-import category.dto.CategoryDto;
-import category.dto.CreateCategoryDto;
-import category.dto.UpdateCategoryDto;
-import category.service.CategoryService;
+import com.shop.internetshop.category.dto.CategoryDto;
+import com.shop.internetshop.category.dto.CreateCategoryDto;
+import com.shop.internetshop.category.dto.UpdateCategoryDto;
+import com.shop.internetshop.category.service.CategoryService;
 import jakarta.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

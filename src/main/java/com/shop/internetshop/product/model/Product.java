@@ -1,6 +1,6 @@
 package com.shop.internetshop.product.model;
 
-import category.model.Category;
+import com.shop.internetshop.category.model.Category;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import lombok.Getter;

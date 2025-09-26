@@ -1,9 +1,9 @@
-package category.service;
+package com.shop.internetshop.category.service;
 
-import category.dto.CategoryListDto;
-import category.dto.CategoryDto;
-import category.dto.CreateCategoryDto;
-import category.dto.UpdateCategoryDto;
+import com.shop.internetshop.category.dto.CategoryListDto;
+import com.shop.internetshop.category.dto.CategoryDto;
+import com.shop.internetshop.category.dto.CreateCategoryDto;
+import com.shop.internetshop.category.dto.UpdateCategoryDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

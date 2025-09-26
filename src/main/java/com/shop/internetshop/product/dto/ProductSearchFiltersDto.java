@@ -1,7 +1,7 @@
 package com.shop.internetshop.product.dto;
 
 
-import category.dto.CategoryListDto;
+import com.shop.internetshop.category.dto.CategoryListDto;
 import lombok.Getter;
 import lombok.Setter;
 

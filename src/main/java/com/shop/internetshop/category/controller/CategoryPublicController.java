@@ -1,8 +1,8 @@
-package category.controller;
+package com.shop.internetshop.category.controller;
 
-import category.dto.CategoryDto;
-import category.dto.CategoryListDto;
-import category.service.CategoryService;
+import com.shop.internetshop.category.dto.CategoryDto;
+import com.shop.internetshop.category.dto.CategoryListDto;
+import com.shop.internetshop.category.service.CategoryService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

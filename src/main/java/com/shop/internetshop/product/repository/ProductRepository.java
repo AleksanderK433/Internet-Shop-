@@ -1,6 +1,6 @@
 package com.shop.internetshop.product.repository;
 
-import category.model.Category;
+import com.shop.internetshop.category.model.Category;
 import com.shop.internetshop.product.model.Product;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -132,5 +132,5 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
 
     // Podobne produkty (ta sama kategoria, wyklucz obecny)
     @Query("SELECT p FROM Product p WHERE p.category = :category AND p.active = true AND p.id != :excludeId ORDER BY FUNCTION('RAND')")
-    List<Product> findSimilarProducts(@Param("category") Category category, @Param("excludeId") Long excludeId, Pageable pageable);
+    List<Product> findSimilarProducts(@Param("com/shop/internetshop/category") Category category, @Param("excludeId") Long excludeId, Pageable pageable);
 }

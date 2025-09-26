@@ -1,4 +1,4 @@
-package category.dto;
+package com.shop.internetshop.category.dto;
 
 import lombok.Getter;
 import lombok.Setter;

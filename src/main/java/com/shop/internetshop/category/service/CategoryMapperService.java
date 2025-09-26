@@ -1,8 +1,8 @@
-package category.service;
+package com.shop.internetshop.category.service;
 
-import category.dto.CategoryDto;
-import category.dto.CategoryListDto;
-import category.model.Category;
+import com.shop.internetshop.category.dto.CategoryDto;
+import com.shop.internetshop.category.dto.CategoryListDto;
+import com.shop.internetshop.category.model.Category;
 import org.springframework.stereotype.Service;
 
 import java.util.stream.Collectors;

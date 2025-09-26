@@ -1,10 +1,10 @@
-package category.service;
+package com.shop.internetshop.category.service;
 
-import category.dto.CategoryDto;
-import category.dto.CreateCategoryDto;
-import category.dto.UpdateCategoryDto;
-import category.model.Category;
-import category.repository.CategoryRepository;
+import com.shop.internetshop.category.dto.CategoryDto;
+import com.shop.internetshop.category.dto.CreateCategoryDto;
+import com.shop.internetshop.category.dto.UpdateCategoryDto;
+import com.shop.internetshop.category.model.Category;
+import com.shop.internetshop.category.repository.CategoryRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
